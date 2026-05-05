@@ -1,0 +1,60 @@
+.navbar{
+	background-color: white;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.75rem 1.5rem;
+}
+
+.navbar-logo{
+	color: var(--color-primary);
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-decoration: none;
+	letter-spacing: -0.5px;
+}
+.navbar-search{
+	flex: 1;
+	padding: 0.5rem 1rem;
+	border: 2px solid var(--color-primary);
+	border-radius: 0.9rem;
+	background-color: rgba(255, 255, 255, 0.25);
+	color: white;
+}
+
+.navbar-search::placeholder {
+	color: var(--color-primary)
+}
+
+.navbar-links {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.navbar-links a {
+	color: var(--color-primary);
+	text-decoration: none;
+	font-size: 0.9rem;
+}
+
+.navbar-cart {
+	position: relative;
+	font-size: 1.3rem;
+}
+
+.cart-badge {
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	background: var(--color-accent);
+	color: white;
+	font-size: 0.7rem;
+	font-weight: 500;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
