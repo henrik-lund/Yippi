@@ -45,6 +45,7 @@
 
 .navbar-cart {
 	position: relative;
+	left: auto;
 	font-size: 1.3rem;
 	border: 1px solid var(--color-primary);
 	border-radius: 8px;
@@ -91,7 +92,7 @@
 	}
 	
 	.navbar-logo {
-		font-size: 1.2em;
+		font-size: 2em;
 	}
 	
 	.navbar-login {
@@ -107,13 +108,18 @@
 	}
 	
 	.navbar-cart {
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 		background: var(--color-primary);
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-size: 1.2rem;
+	}
+
+	.home-search-mobile {
+		outline: none;
+		border-color: var(--color-primary-dark);
 	}
 }
