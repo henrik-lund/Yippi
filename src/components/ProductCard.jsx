@@ -6,7 +6,7 @@ function ProductCard({ product }) {
 	const addItem = useCartStore(state => state.addItem)
 	
 	return (
-		<div className="product-card">
+		<div className="product-card" onClick={() => addItem(product)}>
 		<img
 		src={getImage(product.image)}
 		alt={product.name}

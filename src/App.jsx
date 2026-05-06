@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import CartPage from './pages/CartPage'
 import AdminPage from './pages/AdminPage'
@@ -17,6 +18,7 @@ function App() {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+      <Footer />
     </>
   )
 }
