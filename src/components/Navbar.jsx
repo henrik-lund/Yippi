@@ -14,18 +14,13 @@ function Navbar() {
 
 			<input type="text"
 			className="navbar-search"
-			placeholder="Sök sommarleksaker..."/>
+			placeholder="Sök sommarleksaker..." />
 
 			<div className="navbar-links">
-				<Link to="/cart" className="navbar-cart">
-					🛒Kundvagn{totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-				</Link>
-				{isLoggedIn && <Link to="/admin" className="navbar-admin">Admin</Link>}
-				{isLoggedIn ?
-				<Link to="/logout" className="navbar-logout">Logga ut</Link>
-				:
-				<Link to="/login" className="navbar-login">Logga in</Link>
-				}
+			<Link to="/cart" className="navbar-cart">
+				🛒<span className="cart-text">Kundvagn</span>
+				{totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+			</Link>
 			</div>
 		</nav>
 	)

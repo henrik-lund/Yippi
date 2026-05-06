@@ -10,8 +10,10 @@ function CartPage() {
 	if (items.length === 0) {
     return (
     	<main className="cart-empty">
-        	<p>Din kundvagn är tom.</p>
-        	<Link to="/" className="cart-back-link">← Tillbaka till produkter</Link>
+			<div className='cart-empty-icon'>🛒</div>
+			<h2 className='cart-empty-title'>Oj, här var det tomt!</h2>
+        	<p className='cart-empty-text'>Din kundvagn gråter - dags att fylla den med sommarkul!</p>
+        	<Link to="/" className="cart-back-link">⬅ Shoppa nu! 🌞</Link>
     	</main>
     )
 }
@@ -67,17 +69,24 @@ function CartPage() {
 				</div>
 
 				<div className="cart-form-section">
-				<h3 className="cart-form-heading">Betalningsmetod:</h3>
-				<div className="cart-payment-option">
-					<input type="radio" name="payment" id="card" defaultChecked />
-					<label htmlFor="card">Betala med kort</label>
-				</div>
-				<input type="text" placeholder="Kortnummer" className="cart-payment-input" />
-				<div className="cart-payment-option">
-					<input type="radio" name="payment" id="invoice" />
-					<label htmlFor="invoice">Faktura</label>
-				</div>
-				<input type="text" placeholder="E-postadress" className="cart-payment-input" />
+					<h3 className="cart-form-heading">Betalningsmetod:</h3>
+					<div className="cart-payment-cards">
+						<div className="cart-payment-card-option">
+						<input type="radio" name="payment" id="card" defaultChecked />
+						<label htmlFor="card">
+							<span className="cart-payment-icon">💳</span>
+							Kort
+						</label>
+						</div>
+						<div className="cart-payment-card-option">
+						<input type="radio" name="payment" id="invoice" />
+						<label htmlFor="invoice">
+							<span className="cart-payment-icon">📄</span>
+							Faktura
+						</label>
+						</div>
+					</div>
+					<input type="text" placeholder="Kortnummer" className="cart-payment-input" />
 				</div>
 
 				<button className="cart-confirm-btn">Bekräfta köp</button>

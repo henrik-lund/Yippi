@@ -22,6 +22,12 @@ function HomePage({ products }) {
 	
 	return (
 		<main className="home">
+			<input type="text"
+			className='home-search-mobile'
+			placeholder='Sök sommarleksaker...'
+			value={searchQuery}
+			onChange={e => setSearchQuery(e.target.value)}
+			/>
 		<div className="category-bar">
 		{categories.map(cat => (
 			<button
