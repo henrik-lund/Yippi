@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -9,11 +10,13 @@ import localProducts from './data/database'
 import './App.css'
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('')
+
   return (
     <>
-      <Navbar />
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Routes>
-        <Route path="/" element={<HomePage products={localProducts} />} />
+        <Route path="/" element={<HomePage products={localProducts} searchQuery={searchQuery} />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/login" element={<LoginPage />} />
