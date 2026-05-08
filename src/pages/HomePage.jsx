@@ -48,7 +48,7 @@ return (
 
 	<div className="product-list">
 	{filtered.map(product => (
-		<ProductCard key={product.id} product={product} />
+		<ProductCard key={product.firestoreId || product.id} product={product} />
 	))}
 	</div>
 </main>
