@@ -1,11 +1,12 @@
 import { Link } from 'react-router';
+import yippilogo from '../assets/yippilogo.png'
 import '../styles/Footer.css';
 
 function Footer() {
 	return (
 		<footer className='footer'>
 			<div className='footer-content'>
-				<div className='footer-logo'>Yippi!</div>
+				<img src={yippilogo} alt="Yippi Logo" className="footer-logo" />
 				<p className='footer-desc'>Din sommarbutik för glädje och lek - Vi säljer de roligaste sommarleksakerna för hela familjen!</p>
 			</div>
 			<div className='footer-bottom'>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/OrderConfirmation.css'
+import yippilogo from '../assets/yippilogo.png'
 import { Link } from 'react-router'
 function OrderConfirmation( { totalPrice, onClose}) {
 	const [orderNumber] = useState (() =>{
@@ -10,7 +11,7 @@ function OrderConfirmation( { totalPrice, onClose}) {
 	return(
 		<div className="overlay">
 			<div className="order-modal">
-				<div className="order-modal-logo">Yippi!</div>
+				<img src={yippilogo} alt="Yippi Logo" className="footer-logo" />
 				<div className="order-modal-check">✓</div>
 				<h2 className="order-modal-title">Tack för din beställning!</h2>
 				<p className="order-modal-text">Din order är bekräftad och är på väg till dig. Vi ses i solen! 😊</p>

@@ -21,7 +21,7 @@
 	padding: 1.25rem 1rem;
 	max-width: 480px;
 	width: calc(100% - 2rem);
-	height: 380px;
+	height: 410px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -119,7 +119,7 @@
 	.order-modal {
 		padding: 1rem;
 		gap: 8px;
-		height: 350px;
+		height: 450px;
 	}
 
 	.order-modal-logo {
