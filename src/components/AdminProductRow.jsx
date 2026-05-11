@@ -1,6 +1,9 @@
 import { getImage } from '../utils/getImage'
 
+// AdminProductRow visar en produkt i admin-tabellen
+// Om produkten redigeras visas inputfält, annars visas produktens data
 function AdminProductRow({ product, editingProduct, setEditingProduct, onEdit, onDelete }) {
+// isEditing är true om just denna produkt håller på att redigeras
 const isEditing = editingProduct?.firestoreId === product.firestoreId
 
 return (

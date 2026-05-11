@@ -4,9 +4,11 @@ import useCartStore from "../store/cartStore.js"
 import yippilogo from '../assets/yippilogo.png'
 import '../styles/Navbar.css'
 
+// Navbar tar emot searchQuery och setSearchQuery som props från App.jsx
 function Navbar({ searchQuery, setSearchQuery }) {
 	const items = useCartStore(state => state.items)
 	const isLoggedIn = useAuthStore(state => state.isLoggedIn)
+	// Räknar ut totalt antal produkter i kundvagnen för att visa i badge
 	const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
 
 	return(

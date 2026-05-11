@@ -1,3 +1,4 @@
+// AdminStats visar en översikt med antal produkter och kategorier i admin-panelen
 function AdminStats({ productCount, categoryCount }) {
 return (
 <div className="admin-stats">

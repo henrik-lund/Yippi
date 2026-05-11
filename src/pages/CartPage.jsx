@@ -7,10 +7,14 @@ import OrderConfirmation from '../components/OrderConfirmation.jsx'
 import '../styles/CartPage.css'
 
 function CartPage() {
+// Hämtar kundvagnens innehåll och funktioner från cartStore
 const { items, removeItem, updateQuantity, clearCart } = useCartStore()
+// Räknar ut totalpriset genom att summera pris * antal för varje produkt
 const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0)
+// orderDone styr om orderbekräftelsen visas
 const [orderDone, setOrderDone] = useState(false)
 
+// Om kundvagnen är tom visas ett tomt-läge med länk tillbaka till butiken
 if (items.length === 0) {
 return (
 	<main className="cart-empty">

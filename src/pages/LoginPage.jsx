@@ -5,13 +5,17 @@ import { loginSchema } from '../utils/loginSchema.js'
 import '../styles/LoginPage.css'
 
 function LoginPage() {
+// State för formulärfältens värden och eventuella felmeddelanden
 const [username, setUsername] = useState('')
 const [password, setPassword] = useState('')
 const [errors, setErrors] = useState({})
+// Hämtar login-funktionen från authStore
 const login = useAuthStore(state => state.login)
+// useNavigate används för att navigera programmatiskt efter inloggning
 const navigate = useNavigate()
 
 const handleSubmit = async () => {
+// Validerar formuläret med Joi innan inloggning försöks
 const { error } = loginSchema.validate(
 { username, password },
 { abortEarly: false }
@@ -21,14 +25,18 @@ setErrors({ general: 'Fyll i både användarnamn och lösenord' })
 return
 }
 
+// Försöker logga in via Firebase via authStore
 const success = await login(username, password)
 if (success) {
 setErrors({})
+// Navigerar till admin-sidan om inloggningen lyckades
 navigate('/admin')
 } else {
 setErrors({ general: 'Fel användarnamn eller lösenord' })
 }
 }
+
+// Tillåter användaren att trycka Enter för att logga in
 const handleKeyDown = (e) => {
 	if (e.key === 'Enter') handleSubmit()
 }
