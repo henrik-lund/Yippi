@@ -1,16 +1,20 @@
 import { useState } from 'react'
 import { productSchema } from '../utils/productSchema'
 
+// AdminAddRow är en tabellrad med ett formulär för att lägga till en ny produkt
 function AdminAddRow({ newProduct, setNewProduct, onSave, onCancel }) {
 const [errors, setErrors] = useState({})
 
 const handleSave = () => {
+// Validerar formulärdata med Joi innan produkten sparas
+// price konverteras till nummer eftersom input alltid ger en sträng
 const { error } = productSchema.validate(
 	{ ...newProduct, price: Number(newProduct.price) },
 	{ abortEarly: false }
 )
 
 if (error) {
+	// Bygger upp ett errors-objekt med fältnamn som nyckel och felmeddelande som värde
 	const newErrors = {}
 	error.details.forEach(detail => {
 	newErrors[detail.path[0]] = detail.message
@@ -20,6 +24,7 @@ if (error) {
 }
 
 setErrors({})
+// Anropar onSave i AdminPage som sparar produkten till Firestore
 onSave()
 }
 

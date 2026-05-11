@@ -3,12 +3,17 @@ import ProductCard from '../components/ProductCard'
 import filterProducts from '../utils/filterProducts'
 import '../styles/HomePage.css'
 
+// Tillgängliga kategorier som visas som filterknappar
 const categories = ['Alla', 'Vattenlek', 'Strandlek', 'Utomhus', 'Sport']
 
+// HomePage tar emot produktlistan och söktext som props från App.jsx
 function HomePage({ products, searchQuery }) {
+// activeCategory håller den valda kategorin, standard är "Alla"
 const [activeCategory, setActiveCategory] = useState('Alla')
+// sortOrder håller den valda sorteringen (t.ex. "price-asc")
 const [sortOrder, setSortOrder] = useState('')
 
+// filtered är den filtrerade och sorterade produktlistan som visas
 const filtered = filterProducts(products, searchQuery, activeCategory, sortOrder)
 
 return (

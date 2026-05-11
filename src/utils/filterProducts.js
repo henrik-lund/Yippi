@@ -1,3 +1,5 @@
+// fuzzySearch kontrollerar om alla tecken i searchTerm finns i product i rätt ordning
+// t.ex. "vgun" matchar "vattenpistol" eftersom v, g, u, n finns i den ordningen
 const fuzzySearch = (product, searchTerm) => {
 	let i = 0
 	for (const char of product) {
@@ -7,9 +9,13 @@ const fuzzySearch = (product, searchTerm) => {
 	return false
 }
 
+// filterProducts filtrerar, söker och sorterar produktlistan
+// Den tar emot hela produktlistan, söktext, vald kategori och sorteringsordning
 const filterProducts = (products, searchQuery = '', activeCategory, sortOrder) => {
 	return products
+	// Steg 1: filtrera på kategori (om "Alla" är valt visas alla produkter)
 	.filter(p => activeCategory === 'Alla' || p.category === activeCategory)
+	// Steg 2: filtrera på söktext — söker i namn och kategori med både includes och fuzzy
 	.filter (p => {
 		const searchTerm = searchQuery.toLowerCase()
 		const product = p.name.toLowerCase()
@@ -22,7 +28,7 @@ const filterProducts = (products, searchQuery = '', activeCategory, sortOrder) =
 			fuzzySearch(category, searchTerm)
 		)
 	})
-
+	// Steg 3: sortera resultatet baserat på valt sorteringsalternativ
 	.sort((a, b) => {
 		if (sortOrder === 'price-asc') return a.price - b.price
 		if (sortOrder === 'price-desc') return b.price - a.price

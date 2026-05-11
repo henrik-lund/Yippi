@@ -2,7 +2,12 @@ import { useState } from 'react'
 import '../styles/OrderConfirmation.css'
 import yippilogo from '../assets/yippilogo.png'
 import { Link } from 'react-router'
+
+// OrderConfirmation visas som en modal ovanpå sidan när en order är bekräftad
+// onClose anropas när användaren klickar "Fortsätt shoppa" och tömmer kundvagnen
 function OrderConfirmation( { totalPrice, onClose}) {
+	// Genererar ett slumpmässigt ordernummer en gång när komponenten skapas
+	// useState med en initializer-funktion körs bara en gång, inte vid varje render
 	const [orderNumber] = useState (() =>{
 		const randomNum = Math.floor(Math.random() * 9000) + 1000
 		return `#YP-${randomNum}`
