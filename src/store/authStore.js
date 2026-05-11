@@ -1,17 +1,25 @@
 import { create } from 'zustand'
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { auth } from '../firebase/firebase'
 
-const useAuthStore = create((set) => ({
+const useAuthStore = create ((set) => ({
 	isLoggedIn: false,
-	
-	login: (username, password) => {
-		if (username === 'admin' && password === 'password') {
-			set({ isLoggedIn: true })
+
+	login: async (username, password) => {
+		try{
+			await signInWithEmailAndPassword(auth, username, password)
+			set({isLoggedIn: true}
+			)
 			return true
+		} catch (error) {
+			return false
 		}
-		return false
 	},
-	
-	logout: () => set({ isLoggedIn: false })
+
+	logout: async() => {
+		await signOut(auth)
+		set({isLoggedIn: false})
+	}
 }))
 
 export default useAuthStore
