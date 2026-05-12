@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import AdminStats from '../components/AdminStats'
 import AdminAddRow from '../components/AdminAddRow'
 import AdminProductRow from '../components/AdminProductRow'
+import ConfirmDialog from '../components/ConfirmDialog'
 import '../styles/AdminPage.css'
 
 function AdminPage({ setProducts }) {
@@ -17,6 +18,8 @@ const [showAddForm, setShowAddForm] = useState(false)
 const [editingProduct, setEditingProduct] = useState(null)
 // newProduct håller värdena för det nya produktformuläret
 const [newProduct, setNewProduct] = useState({ name: '', category: '', price: '' })
+const [confirmDelete, setConfirmDelete] = useState(null) // håller den produkt som ska bekräftas för borttagning
+
 const isLoggedIn = useAuthStore(state => state.isLoggedIn)
 const logout = useAuthStore(state => state.logout)
 const navigate = useNavigate()
@@ -44,6 +47,7 @@ await deleteDoc(doc(db, 'products', firestoreId))
 const updated = products.filter(p => p.firestoreId !== firestoreId)
 setLocalProducts(updated)
 setProducts(updated)
+setConfirmDelete(null)
 }
 
 // handleAdd lägger till en ny produkt i Firestore och uppdaterar listan
@@ -80,6 +84,14 @@ const categories = [...new Set(products.map(p => p.category))]
 
 return (
 <div className="admin-layout">
+
+	{confirmDelete && (
+		<ConfirmDialog 
+		message="Är du säker på att du vill ta bort produkten?"
+		onConfirm={() => handleDelete (confirmDelete)}
+		onCancel={() => setConfirmDelete(null)} />
+	)}
+
 	<aside className="admin-sidebar">
 	<button className="admin-logout-btn" onClick={() => { logout(); navigate('/') }}>
 		Logga ut
@@ -126,6 +138,7 @@ return (
 			setEditingProduct={setEditingProduct}
 			onEdit={handleEdit}
 			onDelete={handleDelete}
+			onDeleteClick={(firestoreId) => setConfirmDelete(firestoreId)}
 			/>
 		))}
 		</tbody>
