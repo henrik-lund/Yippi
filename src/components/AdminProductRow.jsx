@@ -2,7 +2,7 @@ import { getImage } from '../utils/getImage'
 
 // AdminProductRow visar en produkt i admin-tabellen
 // Om produkten redigeras visas inputfält, annars visas produktens data
-function AdminProductRow({ product, editingProduct, setEditingProduct, onEdit, onDelete }) {
+function AdminProductRow({ product, editingProduct, setEditingProduct, onEdit, onDelete, onDeleteClick }) {
 // isEditing är true om just denna produkt håller på att redigeras
 const isEditing = editingProduct?.firestoreId === product.firestoreId
 
@@ -42,7 +42,7 @@ return (
 		<td>{product.price} kr</td>
 		<td>
 		<button className="admin-edit-btn" onClick={() => setEditingProduct({ ...product })}>Redigera</button>
-		<button className="admin-delete-btn" onClick={() => onDelete(product.firestoreId)}>Ta bort</button>
+		<button className="admin-delete-btn" onClick={() => onDeleteClick(product.firestoreId)}>Ta bort</button>
 		</td>
 	</>
 	)}

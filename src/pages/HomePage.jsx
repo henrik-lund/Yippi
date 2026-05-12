@@ -7,7 +7,7 @@ import '../styles/HomePage.css'
 const categories = ['Alla', 'Vattenlek', 'Strandlek', 'Utomhus', 'Sport']
 
 // HomePage tar emot produktlistan och söktext som props från App.jsx
-function HomePage({ products, searchQuery }) {
+function HomePage({ products, searchQuery, setSearchQuery }) {
 // activeCategory håller den valda kategorin, standard är "Alla"
 const [activeCategory, setActiveCategory] = useState('Alla')
 // sortOrder håller den valda sorteringen (t.ex. "price-asc")
@@ -22,7 +22,7 @@ return (
 	className='home-search-mobile'
 	placeholder='Sök sommarleksaker...'
 	value={searchQuery}
-	readOnly
+	onChange={e => setSearchQuery(e.target.value)}
 	/>
 	<div className="category-bar">
 	{categories.map(cat => (

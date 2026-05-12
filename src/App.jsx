@@ -37,7 +37,7 @@ function App() {
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Routes>
         {/* Varje Route kopplar en URL-sökväg till en sida */}
-        <Route path="/" element={<HomePage products={products} searchQuery={searchQuery} />} />
+        <Route path="/" element={<HomePage products={products} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
         <Route path="/cart" element={<CartPage />} />
         {/* setProducts skickas till AdminPage så att produktlistan uppdateras efter ändringar */}
         <Route path="/admin" element={<AdminPage setProducts={setProducts} />} />
