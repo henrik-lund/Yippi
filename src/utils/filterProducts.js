@@ -1,5 +1,5 @@
 // fuzzySearch kontrollerar om alla tecken i searchTerm finns i product i rätt ordning
-// t.ex. "vgun" matchar "vattenpistol" eftersom v, g, u, n finns i den ordningen
+// t.ex. "van" matchar "vattenpistol" eftersom v, a, n finns i den ordningen
 const fuzzySearch = (product, searchTerm) => {
 	let i = 0
 	for (const char of product) {
