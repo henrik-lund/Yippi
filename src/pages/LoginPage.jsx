@@ -48,7 +48,7 @@ return (
 
 <div className="login-form">
 	<div className="login-group">
-	<label>Användarnamn</label>
+	<label>E-postadress</label>
 	<input
 		type="text"
 		value={username}
