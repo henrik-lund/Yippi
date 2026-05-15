@@ -46,8 +46,8 @@ return (
 		<option value="" disabled hidden>Sortera</option>
 		<option value="price-asc">Pris: Lägst först</option>
 		<option value="price-desc">Pris: Högst först</option>
-		<option value="name-asc">Namn: A–Ö</option>
-		<option value="name-desc">Namn: Ö–A</option>
+		<option value="name-asc">Namn: A-Ö</option>
+		<option value="name-desc">Namn: Ö-A</option>
 	</select>
 	</div>
 

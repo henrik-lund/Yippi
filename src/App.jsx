@@ -16,7 +16,7 @@ function App() {
   // products håller alla produkter som hämtas från Firestore
   const [products, setProducts] = useState([])
 
-  // useEffect körs en gång när appen startar (tom dependency array [])
+  // useEffect körs en gång när appen startar
   // och hämtar alla produkter från Firestore-samlingen "products"
   useEffect(() => {
     const fetchProducts = async () => {
@@ -36,7 +36,6 @@ function App() {
       {/* Navbar får searchQuery och setSearchQuery så att sökfältet fungerar */}
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Routes>
-        {/* Varje Route kopplar en URL-sökväg till en sida */}
         <Route path="/" element={<HomePage products={products} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
         <Route path="/cart" element={<CartPage />} />
         {/* setProducts skickas till AdminPage så att produktlistan uppdateras efter ändringar */}
