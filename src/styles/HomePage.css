@@ -1,0 +1,111 @@
+.home {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	box-sizing: border-box;
+}
+
+.category-bar {
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.75rem 0;
+	flex-wrap: wrap;
+}
+
+.category-btn {
+	padding: 0.4rem 1rem;
+	border-radius: 99px;
+	border: 0.5px solid var(--color-border);
+	background: white;
+	color: var(--color-primary);
+	font-size: 0.85rem;
+	cursor: pointer;
+}
+
+.category-btn.active {
+	background: var(--color-primary);
+	color: white;
+	border-color: var(--color-primary);
+}
+
+.category-btn:hover:not(.active) {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}
+
+.sort-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 0;
+	border-top: 0.5px solid var(--color-border);
+	border-bottom: 0.5px solid var(--color-border);
+	margin-bottom: 1rem;
+}
+
+.product-count {
+	font-size: 0.85rem;
+	color: var(--color-text-muted);
+}
+
+.sort-select{
+	appearance: base-select;
+	background-color: var(--color-primary);
+	border: 1px solid var(--color-border);
+	color: white;
+	cursor: pointer;
+}
+
+::picker(select) {
+	appearance: base-select;
+	border-radius: 0.25em;
+	border: 1px solid var(--color-border);
+	color: var(--color-primary)
+}
+
+select::picker-icon{
+	font-size: 0.5em;
+	align-content: center;
+	transition: 150ms ease;
+}
+
+select:open::picker-icon {
+	rotate: 180deg;
+}
+
+select option{
+	padding: .25em;
+}
+
+select option:checked{
+	background-color: var(--color-accent);
+	color: white;
+}
+
+.product-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 0.75rem;
+}
+
+.home-search-mobile {
+	display: none;
+}
+@media (max-width: 480px) {
+	.product-list {
+		grid-template-columns: 1fr;
+	}
+	
+	.home-search-mobile {
+		display: block;
+		width: 100%;
+		padding: 0.6rem 1rem;
+		border: 2px solid var(--color-primary);
+		border-radius: 0.9rem;
+		font-size: 0.9rem;
+		color: var(--color-text-primary);
+		box-sizing: border-box;
+		margin-bottom: 0.5rem;
+	}
+}
